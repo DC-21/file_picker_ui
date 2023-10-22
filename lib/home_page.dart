@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
               if (result == null) return;
 
               final file = result.files.first;
-              openFile(file);
+              //openFile(file);
 
               print('Name:${file.name}');
               print('Bytes:${file.bytes}');
