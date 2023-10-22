@@ -29,14 +29,15 @@ class _MyHomePageState extends State<MyHomePage> {
               if (result == null) return;
 
               final file = result.files.first;
-              final newFile = await saveFilePermanently(file);
-              //openFile(file);
+              openFile(file);
 
               print('Name:${file.name}');
               print('Bytes:${file.bytes}');
               print('Size:${file.size}');
               print('Extension:${file.extension}');
               print('Path:${file.path}');
+
+              final newFile = await saveFilePermanently(file);
 
               print('From Path: ${file.path!}');
               print('To Path: ${newFile.path}');
@@ -46,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
-  Future<void> saveFilePermanently(PlatformFile file) async {
+  Future<File> saveFilePermanently(PlatformFile file) async {
     final appStorage = await getApplicationDocumentsDirectory();
     final newFile = File('${appStorage.path}/${file.name}');
-    await File(file.path!).copy(newFile.path);
+    return File(file.path!).copy(newFile.path);
   }
 
   void openFile(PlatformFile file) {
