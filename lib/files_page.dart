@@ -20,8 +20,8 @@ class FilesPage extends StatelessWidget {
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
             ),
             itemCount: files.length,
             itemBuilder: (context, index) {
@@ -44,7 +44,7 @@ Widget buildFile(PlatformFile file) {
   return InkWell(
     onTap: () => openFile(file),
     child: Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -90,7 +90,7 @@ Widget buildFile(PlatformFile file) {
 Color getColor(String extension) {
   final extensionColors = {
     'pdf': Colors.red,
-    'doc': Color.fromARGB(255, 13, 9, 236),
+    'docx': Color.fromARGB(255, 13, 9, 236),
     // Add more extensions and colors as needed.
   };
 
