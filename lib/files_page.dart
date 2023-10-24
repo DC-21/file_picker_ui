@@ -13,24 +13,19 @@ class FilesPage extends StatelessWidget {
   FilesPage({Key? key, required this.files}) : super(key: key);
   void _scanNow(BuildContext context) async {
     if (isScanning) {
-      // Don't allow multiple scan requests.
       return;
     }
 
-    // Set isScanning to true to prevent further scans until the current one is done.
     isScanning = true;
 
-    // Log the file paths
     print('Files to be sent:');
 
     // Define the API endpoint URL.
-    final apiUrl =
-        Uri.parse('http://localhost:3000/upload'); // Replace with your API URL
+    final apiUrl = Uri.parse('http://localhost:3000/upload');
 
     try {
       final request = http.MultipartRequest('POST', apiUrl);
 
-      // Create a list of file paths from the selected files.
       for (var file in files) {
         final fileBytes = await File(file.path!).readAsBytes();
 
@@ -46,7 +41,6 @@ class FilesPage extends StatelessWidget {
           ),
         );
 
-        // Log the file paths
         print(file.name);
       }
 
@@ -55,7 +49,7 @@ class FilesPage extends StatelessWidget {
         print('Scan successful');
         final responseData = await response.stream.bytesToString();
         print('Response Data: $responseData');
-        // If the scan was successful, navigate to the ResponsePage
+
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => ResponsePage(responseJson: responseData),
         ));
