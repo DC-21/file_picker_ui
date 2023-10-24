@@ -4,13 +4,14 @@ import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
+import 'package:power/results_page.dart';
 
 class FilesPage extends StatelessWidget {
   final List<PlatformFile> files;
   bool isScanning = false;
 
   FilesPage({Key? key, required this.files}) : super(key: key);
-  void _scanNow() async {
+  void _scanNow(BuildContext context) async {
     if (isScanning) {
       // Don't allow multiple scan requests.
       return;
@@ -54,6 +55,10 @@ class FilesPage extends StatelessWidget {
         print('Scan successful');
         final responseData = await response.stream.bytesToString();
         print('Response Data: $responseData');
+        // If the scan was successful, navigate to the ResponsePage
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ResponsePage(responseJson: responseData),
+        ));
       } else {
         print('Error scanning files. Status code: ${response.statusCode}');
       }
@@ -88,7 +93,7 @@ class FilesPage extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: _scanNow,
+            onPressed: () => _scanNow(context),
             child: const Text('Scan Now'),
           ),
         ],
