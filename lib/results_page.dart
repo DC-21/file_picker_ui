@@ -13,14 +13,32 @@ class ResponsePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Response Page"),
+        title: const Text(
+          "Response Page",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 54, 33, 243),
+        iconTheme: const IconThemeData(
+          color: Colors.white, // Set the icon (back button) color to white
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Message: ${response["message"]}"),
+            Center(
+              child: Text(
+                "${response["message"]}",
+                style: const TextStyle(
+                  fontSize: 20, // Adjust the font size as needed
+                  fontWeight: FontWeight
+                      .normal, // You can change the fontWeight as well
+                ),
+              ),
+            ),
             if (response["similarities"] != null &&
                 response["similarities"].isNotEmpty)
               Column(

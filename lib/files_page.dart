@@ -67,8 +67,16 @@ class FilesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Selected Files'),
-        centerTitle: true,
+        title: const Text(
+          "Selected Files",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 54, 33, 243),
+        iconTheme: const IconThemeData(
+          color: Colors.white, // Set the icon (back button) color to white
+        ),
       ),
       body: Column(
         children: [
