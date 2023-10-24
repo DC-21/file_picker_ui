@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("File Viewer"),
+        title: const Text("Ai Scanner"),
         centerTitle: true,
       ),
       body: Center(
