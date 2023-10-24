@@ -75,7 +75,7 @@ class FilesPage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 54, 33, 243),
         iconTheme: const IconThemeData(
-          color: Colors.white, // Set the icon (back button) color to white
+          color: Colors.white,
         ),
       ),
       body: Column(

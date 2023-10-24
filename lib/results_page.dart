@@ -21,7 +21,7 @@ class ResponsePage extends StatelessWidget {
         ),
         backgroundColor: Color.fromARGB(255, 54, 33, 243),
         iconTheme: const IconThemeData(
-          color: Colors.white, // Set the icon (back button) color to white
+          color: Colors.white,
         ),
       ),
       body: SingleChildScrollView(
@@ -33,9 +33,8 @@ class ResponsePage extends StatelessWidget {
               child: Text(
                 "${response["message"]}",
                 style: const TextStyle(
-                  fontSize: 20, // Adjust the font size as needed
-                  fontWeight: FontWeight
-                      .normal, // You can change the fontWeight as well
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
             ),
@@ -61,7 +60,7 @@ class ResponsePage extends StatelessWidget {
                             );
                           }).toList(),
                         ),
-                      const Divider(), // Add a divider
+                      const Divider(),
                     ],
                   );
                 }).toList(),
@@ -79,7 +78,7 @@ class ResponsePage extends StatelessWidget {
                       Text("File 1: ${difference["file1"]}"),
                       Text("File 2: ${difference["file2"]}"),
                       Text("Message: ${difference["message"]}"),
-                      const Divider(), // Add a divider
+                      const Divider(),
                     ],
                   );
                 }).toList(),
