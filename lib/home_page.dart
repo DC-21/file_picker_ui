@@ -39,13 +39,28 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         child: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: _selectAndOpenFiles,
-              child: const Text("Select Files"),
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                "Welcome to Ai Scanner",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: ElevatedButton(
+                  onPressed: _selectAndOpenFiles,
+                  child: const Text("Select Files"),
+                ),
+              ),
+            ],
           ),
         ),
       ),
