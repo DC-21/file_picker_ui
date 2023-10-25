@@ -6,28 +6,36 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:power/results_page.dart';
 
-class FilesPage extends StatelessWidget {
+class FilesPage extends StatefulWidget {
   final List<PlatformFile> files;
+
+  const FilesPage({Key? key, required this.files}) : super(key: key);
+
+  @override
+  _FilesPageState createState() => _FilesPageState();
+}
+
+class _FilesPageState extends State<FilesPage> {
   bool isScanning = false;
 
-  FilesPage({Key? key, required this.files}) : super(key: key);
   void _scanNow(BuildContext context) async {
     if (isScanning) {
       return;
     }
 
-    isScanning = true;
+    setState(() {
+      isScanning = true;
+    });
 
     print('Files to be sent:');
 
     // Define the API endpoint URL.
-    final apiUrl =
-        Uri.parse('https://similarity-checks-server.onrender.com/upload');
+    final apiUrl = Uri.parse('http://localhost:3000/upload');
 
     try {
       final request = http.MultipartRequest('POST', apiUrl);
 
-      for (var file in files) {
+      for (var file in widget.files) {
         final fileBytes = await File(file.path!).readAsBytes();
 
         request.files.add(
@@ -60,7 +68,9 @@ class FilesPage extends StatelessWidget {
     } catch (e) {
       print('Error scanning files: $e');
     } finally {
-      isScanning = false;
+      setState(() {
+        isScanning = false;
+      });
     }
   }
 
@@ -97,9 +107,9 @@ class FilesPage extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
               ),
-              itemCount: files.length,
+              itemCount: widget.files.length,
               itemBuilder: (context, index) {
-                final file = files[index];
+                final file = widget.files[index];
                 return buildFile(file);
               },
             ),
@@ -109,7 +119,9 @@ class FilesPage extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: ElevatedButton(
               onPressed: () => _scanNow(context),
-              child: const Text('Scan Now'),
+              child: isScanning
+                  ? const CircularProgressIndicator() // Show loader while scanning
+                  : const Text('Scan Now'),
             ),
           ),
           const SizedBox(
