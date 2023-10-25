@@ -30,7 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue, Colors.deepPurpleAccent],
+            colors: [
+              Color.fromARGB(255, 205, 220, 233),
+              Color.fromARGB(255, 174, 146, 250)
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
