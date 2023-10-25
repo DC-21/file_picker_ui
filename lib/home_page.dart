@@ -27,13 +27,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Ai Scanner"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: _selectAndOpenFiles,
-            child: const Text("Select Files"),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue, Colors.deepPurpleAccent],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: _selectAndOpenFiles,
+              child: const Text("Select Files"),
+            ),
           ),
         ),
       ),

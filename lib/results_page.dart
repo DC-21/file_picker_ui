@@ -19,7 +19,7 @@ class ResponsePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 54, 33, 243),
+        backgroundColor: const Color.fromARGB(255, 54, 33, 243),
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
