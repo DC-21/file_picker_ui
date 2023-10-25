@@ -103,10 +103,17 @@ class FilesPage extends StatelessWidget {
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: () => _scanNow(context),
-            child: const Text('Scan Now'),
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: ElevatedButton(
+              onPressed: () => _scanNow(context),
+              child: const Text('Scan Now'),
+            ),
           ),
+          const SizedBox(
+            height: 18,
+          )
         ],
       ),
     );
