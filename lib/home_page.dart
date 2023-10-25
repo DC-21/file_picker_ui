@@ -11,7 +11,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> _selectAndOpenFiles() async {
-    final result = await FilePicker.platform.pickFiles(allowMultiple: true);
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: true,
+      type: FileType.custom,
+      allowedExtensions: ['pdf', 'docx'],
+    );
     if (result == null || result.files.isEmpty) return;
 
     final files = result.files;
