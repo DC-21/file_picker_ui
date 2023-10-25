@@ -72,6 +72,7 @@ class FilesPage extends StatelessWidget {
           "Selected Files",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 20,
           ),
         ),
         iconTheme: const IconThemeData(
@@ -105,7 +106,7 @@ class FilesPage extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             child: ElevatedButton(
               onPressed: () => _scanNow(context),
               child: const Text('Scan Now'),
