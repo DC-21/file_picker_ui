@@ -19,9 +19,17 @@ class ResponsePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 54, 33, 243),
         iconTheme: const IconThemeData(
           color: Colors.white,
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.deepPurple],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
         ),
       ),
       body: SingleChildScrollView(
