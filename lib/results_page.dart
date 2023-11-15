@@ -75,6 +75,17 @@ class ResponsePage extends StatelessWidget {
                           color: Colors.green,
                         ),
                       ),
+                      if (similarity.containsKey("plagiarismMessage"))
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16.0, top: 10),
+                          child: Text(
+                            similarity["plagiarismMessage"],
+                            style: const TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       const SizedBox(height: 10),
                       Text(
                         "Source: ${similarity["copyingDirection"]}",
@@ -101,7 +112,7 @@ class ResponsePage extends StatelessWidget {
                           }).toList(),
                         ),
                       const Divider(),
-                      const SizedBox(height: 20), // Add spacing here
+                      const SizedBox(height: 20),
                     ],
                   );
                 }).toList(),
@@ -133,14 +144,8 @@ class ResponsePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        "Message: ${difference["message"]}",
-                        style: const TextStyle(
-                          color: Colors.red,
-                        ),
-                      ),
                       const Divider(),
-                      const SizedBox(height: 10), // Add spacing here
+                      const SizedBox(height: 10),
                     ],
                   );
                 }).toList(),
