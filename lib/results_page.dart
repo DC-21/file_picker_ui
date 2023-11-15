@@ -75,7 +75,7 @@ class ResponsePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Copying Direction: ${similarity["copyingDirection"]}",
+                        "Source: ${similarity["copyingDirection"]}",
                         style: const TextStyle(
                           color: Colors.blue,
                         ),
@@ -98,6 +98,7 @@ class ResponsePage extends StatelessWidget {
                           }).toList(),
                         ),
                       const Divider(),
+                      const SizedBox(height: 10), // Add spacing here
                     ],
                   );
                 }).toList(),
@@ -136,6 +137,7 @@ class ResponsePage extends StatelessWidget {
                         ),
                       ),
                       const Divider(),
+                      const SizedBox(height: 10), // Add spacing here
                     ],
                   );
                 }).toList(),
