@@ -68,18 +68,21 @@ class ResponsePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      const SizedBox(height: 10),
                       Text(
                         "Similarity Percentage: ${similarity["averageSimilarityPercentage"].toStringAsFixed(2)}%",
                         style: const TextStyle(
                           color: Colors.green,
                         ),
                       ),
+                      const SizedBox(height: 10),
                       Text(
                         "Source: ${similarity["copyingDirection"]}",
                         style: const TextStyle(
                           color: Colors.blue,
                         ),
                       ),
+                      const SizedBox(height: 20),
                       if (similarity.containsKey("similarParagraphs"))
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +101,7 @@ class ResponsePage extends StatelessWidget {
                           }).toList(),
                         ),
                       const Divider(),
-                      const SizedBox(height: 10), // Add spacing here
+                      const SizedBox(height: 20), // Add spacing here
                     ],
                   );
                 }).toList(),
