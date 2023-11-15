@@ -42,10 +42,12 @@ class ResponsePage extends StatelessWidget {
                 "${response["message"]}",
                 style: const TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             if (response["similarities"] != null &&
                 response["similarities"].isNotEmpty)
               Column(
@@ -54,8 +56,30 @@ class ResponsePage extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("File 1: ${similarity["file1"]}"),
-                      Text("File 2: ${similarity["file2"]}"),
+                      Text(
+                        "File 1: ${similarity["file1"]}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "File 2: ${similarity["file2"]}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Similarity Percentage: ${similarity["averageSimilarityPercentage"].toStringAsFixed(2)}%",
+                        style: const TextStyle(
+                          color: Colors.green,
+                        ),
+                      ),
+                      Text(
+                        "Copying Direction: ${similarity["copyingDirection"]}",
+                        style: const TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
                       if (similarity.containsKey("similarParagraphs"))
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +88,12 @@ class ResponsePage extends StatelessWidget {
                                   .map<Widget>((paragraph) {
                             return Padding(
                               padding: const EdgeInsets.only(left: 16.0),
-                              child: Text(paragraph.toString()),
+                              child: Text(
+                                paragraph.toString(),
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
                             );
                           }).toList(),
                         ),
@@ -74,7 +103,12 @@ class ResponsePage extends StatelessWidget {
                 }).toList(),
               )
             else
-              const Text("No similarities found."),
+              const Text(
+                "No similarities found.",
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
             if (response["differences"] != null &&
                 response["differences"].isNotEmpty)
               Column(
@@ -83,9 +117,24 @@ class ResponsePage extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("File 1: ${difference["file1"]}"),
-                      Text("File 2: ${difference["file2"]}"),
-                      Text("Message: ${difference["message"]}"),
+                      Text(
+                        "File 1: ${difference["file1"]}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "File 2: ${difference["file2"]}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Message: ${difference["message"]}",
+                        style: const TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
                       const Divider(),
                     ],
                   );
