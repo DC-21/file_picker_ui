@@ -30,7 +30,7 @@ class _FilesPageState extends State<FilesPage> {
     print('Files to be sent:');
 
     // Define the API endpoint URL.
-    final apiUrl = Uri.parse('http://localhost:3000/upload');
+    final apiUrl = Uri.parse('https://similarity-checks-server.onrender.com/upload');
 
     try {
       final request = http.MultipartRequest('POST', apiUrl);
